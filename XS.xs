@@ -75,7 +75,8 @@
 
 #define GvAVOK(g) GvAV(g)
 #define GvHVOK(g) GvHV(g)
-#define GvCVOK(g) GvCVu(g) /* XXX: should this really be GvCVu? or GvCV? */
+/* XXX: should this really be GvCVu? or GvCV? */
+#define GvCVOK(g) (GvCVu(g) && SvTYPE(GvCVu(g)) == SVt_PVCV)
 #define GvIOOK(g) GvIO(g)
 
 /* see above - don't let scalar slots become unpopulated, this breaks
